@@ -1,18 +1,20 @@
-exports = (function ComAppCalc(data) {
+var Calculator = (function ComAppCalc(data) {
 	"use strict";
-	this.results = data;
-	this.questionTypes = {
-			'group': 'g'
-			, 'meeting': 'm'
-			, 'interpersonal': 'i'
-			, 'public_speaking': 'p'
-	};
-	this.scores = {};
+	var
+		results = data
+		, questionTypes = {
+				'group': 'g'
+				, 'meeting': 'm'
+				, 'interpersonal': 'i'
+				, 'public_speaking': 'p'
+		}
+		, scores = {}
+	;
 
 	// function that calculates the individual group scores based on question
-	this.getGroupScore = function( name, getCached ) {
+	function getGroupScore( name, getCached ) {
 
-		if( !this.results ) {
+		if( !results ) {
 			return "No Data";
 		}
 
@@ -20,18 +22,18 @@ exports = (function ComAppCalc(data) {
 		getCached || ( getCached = true );
 
 		// deciding what to return
-		if( !!getCached && !!this.scores[ name ] ) {
+		if( !!getCached && !!scores[ name ] ) {
 
 			// returned cached score if there already, just so it doesn't have to calculate it everytime
-			return this.scores[ name ];
+			return scores[ name ];
 
-		} else if( !!this.questionTypes[ name ] ) {
+		} else if( !!questionTypes[ name ] ) {
 
 			// calculating score if needed
-			var score = 18 - this.reduce( [ this.results[this.questionTypes[name] + '1'], this.results[this.questionTypes[name] + '2'], this.results[this.questionTypes[name] + '3'] ] ) + this.reduce( [ this.results[this.questionTypes[name] + '3'], this.results[this.questionTypes[name] + '4'], this.results[this.questionTypes[name] + '5'] ] );
+			var score = 18 - reduce( [ results[questionTypes[name] + '1'], results[questionTypes[name] + '2'], results[questionTypes[name] + '3'] ] ) + reduce( [ results[questionTypes[name] + '3'], results[questionTypes[name] + '4'], results[questionTypes[name] + '5'] ] );
 
 			// caching score
-			this.scores[ name ] = score;
+			scores[ name ] = score;
 
 			// returning socre
 			return score;
@@ -45,18 +47,26 @@ exports = (function ComAppCalc(data) {
 	}
 
 	// function that reduces all scores to final score and returns it
-	this.getPRCA = function() {
-		return this.reduce( [ this.getGroupScore( 'group' ), this.getGroupScore( 'meeting' ), this.getGroupScore( 'interpersonal' ), this.getGroupScore( 'public_speaking' ) ] );
+	function getPRCA() {
+		return reduce( [ getGroupScore( 'group' ), getGroupScore( 'meeting' ), getGroupScore( 'interpersonal' ), getGroupScore( 'public_speaking' ) ] );
 	}
 
 	// function to load data and remove cache
-	this.loadNewData = function( data ) {
-		this.results = data;
-		this.scores  = {};
+	function loadNewData( data ) {
+		results = data;
+		scores  = {};
 	}
 
-	this.reduce = function( array ) {
+	function reduce( array ) {
 
 	}
+
+	// returning object
+	return {
+		getGroupScore: getGroupScore
+		, getPRCA: getPRCA
+		, loadData: loadNewData
+	};
 });
 
+return Calculator;
