@@ -30,7 +30,7 @@ var Calculator = (function ComAppCalc(data) {
 		} else if( !!questionTypes[ name ] ) {
 
 			// calculating score if needed
-			var score = 18 - reduce( [ results[questionTypes[name] + '1'], results[questionTypes[name] + '2'], results[questionTypes[name] + '3'] ] ) + reduce( [ results[questionTypes[name] + '3'], results[questionTypes[name] + '4'], results[questionTypes[name] + '5'] ] );
+			var score = 18 - sum( [ results[questionTypes[name] + '1'], results[questionTypes[name] + '2'], results[questionTypes[name] + '3'] ] ) + sum( [ results[questionTypes[name] + '3'], results[questionTypes[name] + '4'], results[questionTypes[name] + '5'] ] );
 
 			// caching score
 			scores[ name ] = score;
@@ -46,9 +46,9 @@ var Calculator = (function ComAppCalc(data) {
 		}
 	}
 
-	// function that reduces all scores to final score and returns it
+	// function that sums all scores to final score and returns it
 	function getPRCA() {
-		return reduce( [ getGroupScore( 'group' ), getGroupScore( 'meeting' ), getGroupScore( 'interpersonal' ), getGroupScore( 'public_speaking' ) ] );
+		return sum( [ getGroupScore( 'group' ), getGroupScore( 'meeting' ), getGroupScore( 'interpersonal' ), getGroupScore( 'public_speaking' ) ] );
 	}
 
 	// function to load data and remove cache
@@ -57,8 +57,28 @@ var Calculator = (function ComAppCalc(data) {
 		scores  = {};
 	}
 
-	function reduce( array ) {
+	function sum( array ) {
+		var sum = 0;
+		if( array.length === 1 ) {
 
+			// return lone array item as a int (will not be dealing with floats as we shouldn't be getting them anyway)
+			sum = parseInt(array);
+
+		} else if( array.length > 1 ) {
+
+			// do the sum
+			for( var i = 0; i < array.length; i++ ) {
+				sum = sum + ( parseInt( array[ i ] ) || 0 );
+			}
+
+		} else {
+
+			// doesn't meet requirements
+			sum = false;
+
+		}
+
+		return sum;
 	}
 
 	// returning object
