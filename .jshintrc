@@ -1,7 +1,7 @@
 {
 	"laxcomma": true
 	, "es5": true
-	, "curly": true,
+	, "curly": true
 	, "eqeqeq": true
 	, "immed": true
 	, "latedef": true
