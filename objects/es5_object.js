@@ -13,38 +13,26 @@ define(function() {
 		;
 
 		// function that calculates the individual group scores based on question
-		function getGroupScore( name, getCached ) {
+		function getGroupScore( name ) {
 
 			if( !results ) {
 				return "No Data";
 			}
 
-			// will always try to get cached scores
-			var cached = getCached || true;
+			var score = getCachedScores( name );
 
-			// deciding what to return
-			if( !!cached && !!scores[ name ] ) {
-
-				// returned cached score if there already, just so it doesn't have to calculate it everytime
-				return scores[ name ];
-
-			} else if( !!questionTypes[ name ] ) {
-
+			if( !score && !!questionTypes[ name ] ) {
 				// calculating score if needed
-				var score = 18 - sum( [ results[questionTypes[name] + '1'], results[questionTypes[name] + '2'], results[questionTypes[name] + '3'] ] ) + sum( [ results[questionTypes[name] + '3'], results[questionTypes[name] + '4'], results[questionTypes[name] + '5'] ] );
+				score = 18 - sum( [ results[questionTypes[name] + '1'], results[questionTypes[name] + '2'], results[questionTypes[name] + '3'] ] ) + sum( [ results[questionTypes[name] + '3'], results[questionTypes[name] + '4'], results[questionTypes[name] + '5'] ] );
 
 				// caching score
 				scores[ name ] = score;
-
-				// returning socre
-				return score;
-
 			} else {
-
 				// no supposed to be here
-				return "You did something wrong. Try again.";
-
+				score = "You did something wrong. Try again.";
 			}
+
+			return score;
 		}
 
 		// function that sums all scores to final score and returns it
@@ -56,6 +44,10 @@ define(function() {
 		function loadNewData( data ) {
 			results = data;
 			scores  = {};
+		}
+
+		function getCachedScores( name ) {
+			return scores[ name ] || false;
 		}
 
 		function sum( array ) {

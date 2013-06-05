@@ -27,8 +27,8 @@ module.exports = function(grunt) {
 					// Recommendations taken from http://jscomplexity.org/complexity
 					errorsOnly: false, // show pretty file list
 					cyclomatic: 10, // recommendation 10
-					halstead: 12, // no recommendation
-					maintainability: 85 // recommendation 65
+					halstead: 25, // no recommendation
+					maintainability: 95 // recommendation 65
 				}
 			}
 		} // end complexity
