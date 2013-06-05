@@ -44,6 +44,7 @@ define(function() {
 		function loadNewData( data ) {
 			results = data;
 			scores  = {};
+			return true;
 		}
 
 		function getCachedScores( name ) {
