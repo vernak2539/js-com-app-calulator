@@ -1,6 +1,6 @@
 define(function() {
+	"use strict";
 	return function ComAppCalc(data) {
-		"use strict";
 		var
 			results = data
 			, questionTypes = {
@@ -20,10 +20,10 @@ define(function() {
 			}
 
 			// will always try to get cached scores
-			getCached || ( getCached = true );
+			var cached = getCached || true;
 
 			// deciding what to return
-			if( !!getCached && !!scores[ name ] ) {
+			if( !!cached && !!scores[ name ] ) {
 
 				// returned cached score if there already, just so it doesn't have to calculate it everytime
 				return scores[ name ];
@@ -59,27 +59,27 @@ define(function() {
 		}
 
 		function sum( array ) {
-			var sum = 0;
+			var sumOfArray = 0;
 			if( array.length === 1 ) {
 
 				// return lone array item as a int (will not be dealing with floats as we shouldn't be getting them anyway)
-				sum = parseInt(array);
+				sumOfArray = parseInt(array, 10);
 
 			} else if( array.length > 1 ) {
 
 				// do the sum
 				for( var i = 0; i < array.length; i++ ) {
-					sum = sum + ( parseInt( array[ i ] ) || 0 );
+					sumOfArray = sumOfArray + ( parseInt( array[ i ], 10 ) || 0 );
 				}
 
 			} else {
 
 				// doesn't meet requirements
-				sum = false;
+				sumOfArray = false;
 
 			}
 
-			return sum;
+			return sumOfArray;
 		}
 
 		// returning object
@@ -88,5 +88,5 @@ define(function() {
 			, getPRCA: getPRCA
 			, loadData: loadNewData
 		};
-	}
+	};
 });
