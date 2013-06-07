@@ -6,6 +6,8 @@ require(['jquery', 'objects/es5_object'], function($, Calculator) {
 
 	"use strict";
 
+	QUnit.start();
+
 	test("object is initialized without 'new' keyword", function() {
 		var calc = Calculator();
 		strictEqual(typeof calc, "object", "object created from factory function");
