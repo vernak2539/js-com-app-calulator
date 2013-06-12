@@ -21,9 +21,13 @@ define(function() {
 
 			var score = getCachedScores( name );
 
+			if( !!score ) {
+				return score;
+			}
+
 			if( !score && !!questionTypes[ name ] ) {
 				// calculating score if needed
-				score = 18 - sum( [ results[questionTypes[name] + '1'], results[questionTypes[name] + '2'], results[questionTypes[name] + '3'] ] ) + sum( [ results[questionTypes[name] + '3'], results[questionTypes[name] + '4'], results[questionTypes[name] + '5'] ] );
+				score = 18 - sum( [ results[questionTypes[name] + '1'], results[questionTypes[name] + '2'], results[questionTypes[name] + '3'] ] ) + sum( [ results[questionTypes[name] + '4'], results[questionTypes[name] + '5'], results[questionTypes[name] + '6'] ] );
 
 				// caching score
 				scores[ name ] = score;
