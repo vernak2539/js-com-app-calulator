@@ -53,22 +53,22 @@ require(['jquery', 'objects/es5_object'], function($, Calculator) {
 		strictEqual( calc.getPRCA(), 80, 'returned correct PRCA score');
 	});
 
-	test('calculatin group discussion score' , function() {
+	test('calculating group discussion score' , function() {
 		var calc = Calculator( sampleData1 );
 		strictEqual( calc.getGroupScore("group"), 20, 'returned correct group discussion score');
 	});
 
-	test('calculatin meeting score' , function() {
+	test('calculating meeting score' , function() {
 		var calc = Calculator( sampleData1 );
 		strictEqual( calc.getGroupScore("meeting"), 22, 'returned correct meetings score');
 	});
 
-	test('calculatin interpersonal score' , function() {
+	test('calculating interpersonal score' , function() {
 		var calc = Calculator( sampleData1 );
 		strictEqual( calc.getGroupScore("interpersonal"), 17, 'returned correct interpersonal score');
 	});
 
-	test('calculatin public speaking score' , function() {
+	test('calculating public speaking score' , function() {
 		var calc = Calculator( sampleData1 );
 		strictEqual( calc.getGroupScore("public_speaking"), 21, 'returned correct public speaking score');
 	});
