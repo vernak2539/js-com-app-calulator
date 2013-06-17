@@ -2,6 +2,7 @@
 {
 	"devel": true,
 	"browser": true,
+	"boss": true,
 	"bitwise": true,
 	"curly": true,
 	"debug": false,
