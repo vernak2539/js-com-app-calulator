@@ -1,1 +1,0 @@
-// will be a coffeescript file emulating es5_object.js

@@ -8,7 +8,8 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json')
 		, jshint: {
 			all: [
-				'objects/*.js'
+				'objects/es5_object.js'
+				, 'objects/coffee_calculator.js'
 			]
 			, options: { jshintrc: '.jshintrc' }
 			, gruntfile: {
@@ -32,14 +33,40 @@ module.exports = function(grunt) {
 				}
 			}
 		} // end complexity
+		, coffee: {
+			genCalculator: {
+				options: {
+					bare: true
+				}
+				, files: {
+					'./objects/coffee_calculator.js': './objects/calculator.coffee'
+				}
+			}
+		}
+		, traceur: {
+			es6: {
+				files:{
+					'./objects/es6_compiled.js': ['./objects/es6_object.js']
+				}
+			}
+		}
+		, watch: {
+			coffee: {
+				files: [ './objects/calculator.coffee' ]
+				, tasks: [ 'coffee:calc' ]
+			}
+		}
 	});
 
 	// These plugins provide necessary tasks.
+	grunt.loadNpmTasks('grunt-contrib-coffee');
 	grunt.loadNpmTasks('grunt-contrib-qunit');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-complexity');
+	grunt.loadNpmTasks('grunt-traceur');
 
 	// Default task.
-	grunt.registerTask( 'default', ['jshint', 'qunit', 'complexity'] );
+	grunt.registerTask( 'default', ['coffee:genCalculator', 'jshint', 'qunit', 'complexity'] );
 
 };
