@@ -7,9 +7,9 @@
     "grunt-contrib-coffee": "~0.7.0",
     "grunt-contrib-watch": "~0.4.4",
     "grunt-contrib-requirejs": "~0.4.1",
-    "grunt-contrib-qunit": "~0.2.1"
+    "grunt-contrib-qunit": "~0.2.1",
+    "grunt-traceur": "0.0.1",
+    "grunt-complexity": "~0.1.3"
   },
-  "dependencies": {
-    "grunt-complexity": "~0.1.2"
-  }
+  "dependencies": {}
 }
