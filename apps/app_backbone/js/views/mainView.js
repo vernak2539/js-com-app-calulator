@@ -7,7 +7,7 @@ define(
 
 		return Backbone.View.extend({
 			initialize: function() {
-				alert('test');
+				//alert('test');
 			}
 		});
 	}

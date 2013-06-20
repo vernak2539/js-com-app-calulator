@@ -1,6 +1,6 @@
 define([
 		'backbone'
-		, 'views/start'
+		, 'views/mainView'
 	], function(
 		Backbone
 		, MainView

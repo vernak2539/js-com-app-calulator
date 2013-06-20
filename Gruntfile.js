@@ -55,7 +55,22 @@ module.exports = function(grunt) {
 				files: [ './objects/calculator.coffee' ]
 				, tasks: [ 'coffee:calc' ]
 			}
+			, less: {
+				files: [ './apps/less/*.less']
+				, tasks: [ 'recess:compile' ]
+			}
 		}
+		, recess: {
+			compile: {
+				files: {
+					'./apps/css/main.css': ['./apps/less/main.less']
+				},
+				options: {
+					compile: true
+				}
+			}
+		}
+
 	});
 
 	// These plugins provide necessary tasks.
@@ -64,6 +79,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-complexity');
+	grunt.loadNpmTasks('grunt-recess');
 	grunt.loadNpmTasks('grunt-traceur');
 
 	// Default task.

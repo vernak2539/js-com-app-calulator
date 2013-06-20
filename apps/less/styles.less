@@ -1,0 +1,54 @@
+.rounded-corners (@radius: 5px) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	-ms-border-radius: @radius;
+	-o-border-radius: @radius;
+	border-radius: @radius;
+}
+
+.colorize-background (@color: @white, @alpha: 1) {
+	background: @color;
+	background: rgb(red(@color), green(@color), blue(@color));
+	background: rgba(red(@color), green(@color), blue(@color), @alpha);
+}
+
+.colorize-text (@color: @white, @alpha: 1) {
+	color: @color;
+	color: rgb(red(@color), green(@color), blue(@color));
+	color: rgba(red(@color), green(@color), blue(@color), @alpha);
+}
+
+.size-font (@multiple: 1) {
+	font-size: @baseFontSize * @multiple;
+	line-height: @baseFontSize * @multiple * 1.42857142857143;
+}
+
+h2 {
+	.colorize-text(@gray);
+}
+
+.light-gray {
+	color: @grayLight ;
+}
+
+.font2x {
+	.size-font(2);
+}
+
+.center {
+	text-align: center;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.take-test {
+	width:100%;
+	padding:20px 0;
+	font-size:2em;
+}
