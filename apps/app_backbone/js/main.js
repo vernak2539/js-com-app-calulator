@@ -4,7 +4,9 @@ require.config({
 		backbone: '../../../components/backbone/backbone'
 		, lodash: '../../../components/lodash/lodash'
 		, jquery: '../../../components/jquery/jquery'
+		, handlebars: '../../../components/handlebars/handlebars'
 		, templates: '../templates'
+		, text: './text'
 		, data: '../data'
 		, router: 'router'
 	}
@@ -19,10 +21,17 @@ require.config({
 		, lodash: {
 			exports: '_'
 		}
+		, handlebars: {
+			exports: "Handlebars"
+		}
 	}
 });
 
 require(['jquery', 'lodash', 'backbone', 'router'], function($, _, Backbone, Router) {
-	var router = new Router();
+
+	"use strict";
+
+	new Router();
 	Backbone.history.start();
+
 });

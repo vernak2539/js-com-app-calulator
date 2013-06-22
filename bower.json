@@ -8,7 +8,7 @@
     "lodash": "~1.2.1",
     "bootstrap": "~2.3.2",
     "backbone.marionette": "~1.0.3",
-    "handlebars": "~1.0.0-rc.4",
+    "handlebars": "1.0.6",
     "qunit": "~1.11.0"
   }
 }

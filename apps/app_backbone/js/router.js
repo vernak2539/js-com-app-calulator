@@ -1,20 +1,20 @@
-define([
-		'backbone'
-		, 'views/mainView'
-	], function(
-		Backbone
-		, MainView
-	) {
+define( function( require ) {
+
 		"use strict";
+
+		var Backbone = require('backbone');
+		var InfoView = require('views/infoView');
 
 		return Backbone.Router.extend({
 			// main routes
 			routes: {
-				'': 'renderMain'
+				'': 'renderInfo'
 			}
 			, initialize: function() {}
-			, renderMain: function() {
-				new MainView();
+			, renderInfo: function() {
+				new InfoView({
+					el: '#content'
+				});
 			}
 		});
 	}

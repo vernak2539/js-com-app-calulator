@@ -8994,6 +8994,11 @@ a.badge:focus {
   }
 }
 
+#content {
+  font-size: 16.8px;
+  line-height: 24.000000000000025px;
+}
+
 h2 {
   color: #555555;
 }
