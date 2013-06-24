@@ -19,6 +19,14 @@ module.exports = function(grunt) {
 		, qunit: {
 			files: ['test/**/*.html']
 		}
+		, connect: {
+			backbone: {
+				options: {
+					port: 7000,
+					base: './'
+				}
+			}
+		}
 		, complexity: {
 			generic: {
 				src: [
@@ -75,6 +83,7 @@ module.exports = function(grunt) {
 
 	// These plugins provide necessary tasks.
 	grunt.loadNpmTasks('grunt-contrib-coffee');
+	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-qunit');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-watch');
@@ -84,5 +93,7 @@ module.exports = function(grunt) {
 
 	// Default task.
 	grunt.registerTask( 'default', ['coffee:genCalculator', 'jshint', 'qunit', 'complexity'] );
+
+	grunt.registerTask( 'server', ['default', 'connect:backbone', 'watch:less'] );
 
 };
