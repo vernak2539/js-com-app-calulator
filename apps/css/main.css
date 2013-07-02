@@ -9003,6 +9003,10 @@ h2 {
   color: #555555;
 }
 
+.txt-center {
+  text-align: center;
+}
+
 .light-gray {
   color: #999999;
 }

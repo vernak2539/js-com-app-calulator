@@ -11,10 +11,14 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json')
 		, jshint: {
 			all: [
-				'objects/es5_object.js'
-				, 'objects/coffee_calculator.js'
+				'./objects/es5_object.js'
+				, './objects/coffee_calculator.js'
+				, './apps/**/*.js'
+				, '!./apps/app_backbone/js/text.js'
 			]
-			, options: { jshintrc: '.jshintrc' }
+			, options: {
+				jshintrc: '.jshintrc'
+			}
 			, gruntfile: {
 				src: 'Gruntfile.js'
 			}
