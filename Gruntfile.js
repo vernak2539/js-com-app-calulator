@@ -2,6 +2,9 @@
 module.exports = function(grunt) {
 	"use strict";
 
+	// load all grunt tasks
+	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+
 	// Project configuration.
 	grunt.initConfig({
 		// Metadata.
@@ -20,7 +23,7 @@ module.exports = function(grunt) {
 			files: ['test/**/*.html']
 		}
 		, connect: {
-			backbone: {
+			apps: {
 				options: {
 					port: 7000,
 					base: './'
@@ -67,6 +70,10 @@ module.exports = function(grunt) {
 				files: [ './apps/less/*.less']
 				, tasks: [ 'recess:compile' ]
 			}
+			, all: {
+				files: [ './apps/less/*.less', './apps/app_backbone/js/**/*.js' ]
+				, tasks: [ 'coffee:genCalculator', 'jshint', 'qunit', 'complexity', 'recess:compile' ]
+			}
 		}
 		, recess: {
 			compile: {
@@ -78,22 +85,11 @@ module.exports = function(grunt) {
 				}
 			}
 		}
-
 	});
-
-	// These plugins provide necessary tasks.
-	grunt.loadNpmTasks('grunt-contrib-coffee');
-	grunt.loadNpmTasks('grunt-contrib-connect');
-	grunt.loadNpmTasks('grunt-contrib-qunit');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-complexity');
-	grunt.loadNpmTasks('grunt-recess');
-	grunt.loadNpmTasks('grunt-traceur');
 
 	// Default task.
 	grunt.registerTask( 'default', ['coffee:genCalculator', 'jshint', 'qunit', 'complexity'] );
 
-	grunt.registerTask( 'server', ['default', 'connect:backbone', 'watch:less'] );
+	grunt.registerTask( 'dev', ['default', 'connect:apps', 'watch:all'] );
 
 };
