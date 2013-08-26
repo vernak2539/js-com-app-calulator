@@ -1,0 +1,16 @@
+--- 
+applications: 
+  .: 
+    mem: 128M
+    command: node app
+    instances: 1
+    runtime: node08
+    name: ca-calc
+    url: 
+    infra: aws
+    framework: 
+      name: standalone
+      info: 
+        mem: 64M
+        exec: 
+        description:
