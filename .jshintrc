@@ -10,6 +10,7 @@
 	"latedef": true,
 	"laxcomma": true,
 	"newcap": true,
+	"node": true,
 	"undef": true,
 	"shadow": false,
 	"strict": true,
@@ -21,6 +22,7 @@
 		"$": true,
 		"jQuery": true,
 		"_": true,
-		"Backbone": true
+		"Backbone": true,
+		"process": true
 	}
 }

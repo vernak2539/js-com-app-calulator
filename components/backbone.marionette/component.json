@@ -43,6 +43,6 @@
   "_id": "backbone.marionette@1.0.3",
   "repository": {
     "type": "git",
-    "url": "git://github.com/marionettejs/backbone.marionette.git"
+    "url": "git://github.com/marionettejs/backbone.marionette"
   }
 }

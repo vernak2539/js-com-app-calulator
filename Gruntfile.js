@@ -2,22 +2,37 @@
 module.exports = function(grunt) {
 	"use strict";
 
+	// load all grunt tasks
+	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+
 	// Project configuration.
 	grunt.initConfig({
 		// Metadata.
 		pkg: grunt.file.readJSON('package.json')
 		, jshint: {
 			all: [
-				'objects/es5_object.js'
-				, 'objects/coffee_calculator.js'
+				'./objects/es5_object.js'
+				, './objects/coffee_calculator.js'
+				, './apps/**/*.js'
+				, '!./apps/app_backbone/js/text.js'
 			]
-			, options: { jshintrc: '.jshintrc' }
+			, options: {
+				jshintrc: '.jshintrc'
+			}
 			, gruntfile: {
 				src: 'Gruntfile.js'
 			}
 		}
 		, qunit: {
 			files: ['test/**/*.html']
+		}
+		, connect: {
+			apps: {
+				options: {
+					port: 7000,
+					base: './'
+				}
+			}
 		}
 		, complexity: {
 			generic: {
@@ -55,18 +70,30 @@ module.exports = function(grunt) {
 				files: [ './objects/calculator.coffee' ]
 				, tasks: [ 'coffee:calc' ]
 			}
+			, less: {
+				files: [ './apps/less/*.less']
+				, tasks: [ 'recess:compile' ]
+			}
+			, all: {
+				files: [ './apps/less/*.less', './apps/app_backbone/js/**/*.js' ]
+				, tasks: [ 'coffee:genCalculator', 'jshint', 'qunit', 'complexity', 'recess:compile' ]
+			}
+		}
+		, recess: {
+			compile: {
+				files: {
+					'./apps/css/main.css': ['./apps/less/main.less']
+				},
+				options: {
+					compile: true
+				}
+			}
 		}
 	});
 
-	// These plugins provide necessary tasks.
-	grunt.loadNpmTasks('grunt-contrib-coffee');
-	grunt.loadNpmTasks('grunt-contrib-qunit');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-complexity');
-	grunt.loadNpmTasks('grunt-traceur');
-
 	// Default task.
 	grunt.registerTask( 'default', ['coffee:genCalculator', 'jshint', 'qunit', 'complexity'] );
+
+	grunt.registerTask( 'dev', ['default', 'connect:apps', 'watch:all'] );
 
 };
