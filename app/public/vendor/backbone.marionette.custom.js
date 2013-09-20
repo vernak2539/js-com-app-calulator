@@ -22,14 +22,14 @@
 
     var underscore = require('lodash');
     var backbone = require('backbone');
-    var wreqr = require('backbone.wreqr');
-    var babysitter = require('backbone.babysitter');
+    var wreqr = require('backbone.wreqr.custom');
+    var babysitter = require('backbone.babysitter.custom');
 
     module.exports = factory(underscore, backbone, wreqr, babysitter);
 
   } else if (typeof define === 'function' && define.amd) {
 
-    define(['lodash', 'backbone', 'backbone.wreqr', 'backbone.babysitter'], factory);
+    define(['lodash', 'backbone', 'backbone.wreqr.custom', 'backbone.babysitter.custom'], factory);
 
   } 
 }(this, function (_, Backbone) {

@@ -30,7 +30,6 @@
     "baseDir": "./public/vendor",
     "dependencies": {
       "require": "github:jrburke/requirejs/2.1.8",
-      "lodash": "https://raw.github.com/lodash/lodash/2.0.0/dist/lodash.js",
       "jquery": "github:jquery/jquery/2.0.3",
       "underscore": "github:jashkenas/underscore/1.5.2",
       "backbone": "github:jashkenas/backbone/1.0.0",
@@ -38,7 +37,8 @@
       "backbone.babysitter": "github:marionettejs/backbone.babysitter/v0.0.6",
       "backbone.wreqr": "github:marionettejs/backbone.wreqr/v0.2.0",
       "handlebars": "https://raw.github.com/wycats/handlebars.js/1.0.0/dist/handlebars.js",
-      "json2": "https://raw.github.com/douglascrockford/JSON-js/master/json2.js"
+      "json2": "https://raw.github.com/douglascrockford/JSON-js/master/json2.js",
+      "lodash": "https://raw.github.com/lodash/lodash/2.0.0/dist/lodash.js"
     }
   }
 }
