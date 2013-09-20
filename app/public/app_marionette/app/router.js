@@ -13,6 +13,7 @@ define( function( require ) {
 			'': 'start'
 			, 'quiz(/)': 'questions'
 			, 'quiz/:id': 'questions'
+			, 'results(/)': 'start'
 		}
 	});
 

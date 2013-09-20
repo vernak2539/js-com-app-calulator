@@ -17,7 +17,7 @@ define( function( require ) {
 			'click #questions': 'loadQuestions'
 		}
 		, loadQuestions: function() {
-			app.router.navigate( '/questions/1', { trigger: true });
+			app.router.navigate( '/quiz/0', { trigger: true });
 		}
 	});
 });
