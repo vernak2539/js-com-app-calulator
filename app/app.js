@@ -81,9 +81,9 @@ app.configure('production', function() {
 });
 
 // router for node app
+app.get( '/quiz/', routes.index );
+app.get( '/quiz/*', routes.index );
 app.all('/', routes.index );
 
 http.createServer( app ).listen( app.get( 'port' ) );
 console.log( 'Express server listening on port %d in %s mode', app.get('port'), process.env.NODE_ENV );
-
-

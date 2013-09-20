@@ -7,13 +7,13 @@ define( function( require ) {
 	var Marionette = require( 'marionette' );
 
 	// TEMPLATES
-	var templateName = require( 'tmpl!templates/start-tmpl.html' );
+	var templateName = require( 'tmpl!templates/quiz-tmpl.html' );
 
 	return Marionette.Layout.extend({
 		template: templateName
-		, className: 'comm-app-start'
+		, className: 'comm-quiz'
 		, regions: {}
-		, events: {
+		, ui: {
 			'click #questions': 'loadQuestions'
 		}
 		, loadQuestions: function() {
