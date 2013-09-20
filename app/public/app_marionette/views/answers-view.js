@@ -5,6 +5,7 @@ define( function( require ) {
 
 	// VENDOR
 	var Marionette = require( 'marionette' );
+	var $          = require( 'jquery' );
 
 	// templates
 	var answersTmpl = require( 'tmpl!templates/answers-tmpl.html' );
@@ -13,7 +14,13 @@ define( function( require ) {
 		template: answersTmpl
 		, className: 'btn-toolbar'
 		, events: {
-			'click .answer-btn': 'changeQuestion'
+			'click .answer-btn': 'storeAnswer'
+		}
+		, storeAnswer: function( event ) {
+			var allAnswers = app.model.get('answers');
+			allAnswers[ $('#questionKey').val() ] = parseInt( $(event.currentTarget).val(), 10 );
+			app.model.set('answers', allAnswers);
+			this.changeQuestion();
 		}
 		, changeQuestion: function() {
 			var qID = app.model.get( 'questionId' );

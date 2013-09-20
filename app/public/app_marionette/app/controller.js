@@ -16,6 +16,7 @@ define( function( require ) {
 
 		// setting up model for tracking everything later down the road
 		this.model = new Backbone.Model();
+		this.model.set( 'answers', {} );
 
 		// setting up questions collection
 		var QuestionsCollection = new Backbone.Collection({ model: new Backbone.Model() });
