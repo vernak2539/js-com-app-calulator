@@ -15,30 +15,28 @@
 // can remove the `root` use and the passing `this` as the first arg to
 // the top function.
 
-(function (root, factory) {
+(function ( root, factory ) {
 	"use strict";
 
 	if (typeof define === 'function' && define.amd) {
-			// AMD. Register as an anonymous module.
-			define([], factory);
+		// AMD. Register as an anonymous module.
+		define([], factory);
 	} else {
-			// Browser globals
-			root.amdWeb = factory();
+		// Browser globals
+		root.amdWeb = factory();
 	}
-}(this, function () {
+} ( this, function () {
 	"use strict";
 
 	return function ComAppCalc(data) {
-		var
-			results = data
-			, questionTypes = {
-					'group': 'g'
-					, 'meeting': 'm'
-					, 'interpersonal': 'i'
-					, 'public_speaking': 'p'
-			}
-			, scores = {}
-		;
+		var results = data;
+		var questionTypes = {
+				'group': 'g'
+				, 'meeting': 'm'
+				, 'interpersonal': 'i'
+				, 'public_speaking': 'p'
+		};
+		var scores = {};
 
 		// function that calculates the individual group scores based on question
 		function getGroupScore( name ) {
