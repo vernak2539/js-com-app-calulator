@@ -44,26 +44,27 @@ define( function( require ) {
 			app.mainContent.show( new StartLayout() );
 		}
 		, quiz: function( id ) {
+			// caching current question id that's stored in model
+			var qID = ( !_.isNaN( parseInt( app.model.get('questionId'), 10 ) ) ) ? parseInt( app.model.get('questionId'), 10 ) : undefined;
 
-			app.model.set( 'questionId', id );
+			// I only want to continue if the id is not null/undefined and the model's question ID is not null/undefined
+			if( ( !_.isUndefined( id ) && !_.isNull( id ) ) && ( !_.isUndefined( qID ) && !_.isNull( qID ) ) ) {
 
-			/*if( !app.model.get('questionId') ) {
+				// parsing the ID to an int like it should be
+				id = parseInt( id, 10 );
 
-				//start them at the beginning
-				app.model.set( 'questionId', 0 );
-				app.router.navigate( '/quiz/0', { trigger: true } );
+				// if the id is not equal to the question ID set in the model, send them to that question
+				if( id !== qID ) {
+					app.router.navigate( '/quiz/' + qID, { trigger: true } );
+				}
+			} else {
+				// setting what needs to be set
+				app.model.set( 'questionId', 1 );
 
-			} else if( !!id && !!app.model.get('questionId') && ( id !== app.model.get( 'questionId' ) )  ) {
+				// redirecting back to route so the above if statement condition is met
+				app.router.navigate( '/quiz/' + app.model.get( 'questionId' ) );
+			}
 
-				// go to the question they have stored because they are not allowed to go back
-				app.router.navigate( '/quiz/' + app.model.get('questionId'), { trigger: true } );
-
-			} else if ( !!app.model.get('questionId') && app.model.get( 'questionId' ) >= app.model.get('questions').length ) {
-
-				// go to results because they completed all the questions
-				app.router.navigate( '/results', { trigger: true } );
-
-			}*/
 			if( !!app.mainContent.currentView ) {
 				if( app.mainContent.currentView.viewName !== "quiz-layout" ) {
 					app.mainContent.show( new QuizLayout() );

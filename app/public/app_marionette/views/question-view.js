@@ -15,8 +15,8 @@ define( function( require ) {
 			this.listenTo( app.model, 'change:questionId', this.render );
 		}
 		, templateHelpers: function() {
-			if( !!app.model.get('questionId') ) {
-				var questionId = parseInt( app.model.get('questionId'), 10 );
+			if( !!app.model.get('questionId') && app.model.get( 'questionId' ) <= app.model.get('questions').length && app.model.get( 'questionId' ) > 0 ) {
+				var questionId = parseInt( app.model.get('questionId') - 1, 10 );
 
 				return {
 					question: app.model.get('questions').models[questionId].get( 'question' )

@@ -25,7 +25,9 @@ define( function( require ) {
 		, changeQuestion: function() {
 			var qID = app.model.get( 'questionId' );
 			if( qID < app.model.get('questions').length - 1 ) {
-				app.router.navigate( '/quiz/' + (++qID), { trigger: true } );
+				var newQuestionId = ++qID;
+				app.model.set( 'questionId', newQuestionId );
+				app.router.navigate( '/quiz/' + newQuestionId, { trigger: true } );
 			} else {
 				app.router.navigate( '/results', { trigger: true } );
 			}
