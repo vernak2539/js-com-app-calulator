@@ -81,8 +81,9 @@ app.configure('production', function() {
 });
 
 // router for node app
-app.get( '/quiz/', routes.index );
+app.get( '/quiz', routes.index );
 app.get( '/quiz/*', routes.index );
+app.get( '/results', routes.index );
 app.all('/', routes.index );
 
 http.createServer( app ).listen( app.get( 'port' ) );

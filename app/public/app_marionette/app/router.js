@@ -11,9 +11,9 @@ define( function( require ) {
 		controller: controller
 		, appRoutes: {
 			'': 'start'
-			, 'quiz(/)': 'questions'
-			, 'quiz/:id': 'questions'
-			, 'results(/)': 'start'
+			, 'quiz(/)': 'quiz'
+			, 'quiz/:id': 'quiz'
+			, 'results(/)': 'results'
 		}
 	});
 

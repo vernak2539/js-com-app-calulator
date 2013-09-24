@@ -15,12 +15,14 @@ define( function( require ) {
 			this.listenTo( app.model, 'change:questionId', this.render );
 		}
 		, templateHelpers: function() {
-			var questionId = parseInt( app.model.get('questionId'), 10 );
+			if( !!app.model.get('questionId') ) {
+				var questionId = parseInt( app.model.get('questionId'), 10 );
 
-			return {
-				question: app.model.get('questions').models[questionId].get( 'question' )
-				, key: app.model.get('questions').models[questionId].get( 'key' )
-			};
+				return {
+					question: app.model.get('questions').models[questionId].get( 'question' )
+					, key: app.model.get('questions').models[questionId].get( 'key' )
+				};
+			}
 		}
 	});
 });

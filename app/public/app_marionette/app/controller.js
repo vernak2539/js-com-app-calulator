@@ -8,8 +8,9 @@ define( function( require ) {
 	var Backbone = require( 'backbone' );
 
 	// views
-	var StartLayout = require( 'views/start-layout' );
-	var QuizLayout  = require( 'views/quiz-layout' );
+	var StartLayout   = require( 'views/start-layout' );
+	var QuizLayout    = require( 'views/quiz-layout' );
+	var ResultsView = require( 'views/results-view' );
 
 	// initializers for anything
 	app.addInitializer( function() {
@@ -24,13 +25,25 @@ define( function( require ) {
 		this.model.set({
 			questions: QuestionsCollection.reset( questions )
 		});
+
+		this.utility = {};
+		this.utility.objectSize = function(the_object) {
+			/* function to validate the existence of each key in the object to get the number of valid keys. */
+			var object_size = 0;
+			for ( var key in the_object ) {
+				if ( the_object.hasOwnProperty( key ) ) {
+					object_size++;
+				}
+			}
+			return object_size;
+		};
 	});
 
 	var controller = {
 		start: function() {
 			app.mainContent.show( new StartLayout() );
 		}
-		, questions: function( id ) {
+		, quiz: function( id ) {
 
 			app.model.set( 'questionId', id );
 
@@ -57,6 +70,13 @@ define( function( require ) {
 				}
 			} else {
 				app.mainContent.show( new QuizLayout() );
+			}
+		}
+		, results: function() {
+			if( app.utility.objectSize( app.model.get( 'answers' ) ) !== app.model.get( 'questions' ).length ) {
+				app.router.navigate( '/quiz/', { trigger: true } );
+			} else {
+				app.mainContent.show( new ResultsView() );
 			}
 		}
 	};
