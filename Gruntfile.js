@@ -29,7 +29,7 @@ module.exports = function(grunt) {
 		, connect: {
 			apps: {
 				options: {
-					port: 7000,
+					port: 5000,
 					base: './'
 				}
 			}
