@@ -11,7 +11,7 @@ define( function( require ) {
 
 	return Marionette.Layout.extend({
 		template: templateName
-		, className: 'comm-app-start'
+		, className: 'com-app-start'
 		, regions: {}
 		, events: {
 			'click #questions': 'loadQuestions'

@@ -38,7 +38,8 @@
       "backbone.wreqr": "github:marionettejs/backbone.wreqr/v0.2.0",
       "handlebars": "https://raw.github.com/wycats/handlebars.js/1.0.0/dist/handlebars.js",
       "json2": "https://raw.github.com/douglascrockford/JSON-js/master/json2.js",
-      "lodash": "https://raw.github.com/lodash/lodash/2.0.0/dist/lodash.js"
+      "lodash": "https://raw.github.com/lodash/lodash/2.0.0/dist/lodash.js",
+      "bootstrap": "github:twbs/bootstrap/v3.0.0"
     }
   }
 }
