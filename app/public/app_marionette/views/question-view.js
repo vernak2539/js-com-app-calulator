@@ -11,6 +11,7 @@ define( function( require ) {
 
 	return Marionette.ItemView.extend({
 		template: questionTmpl
+		, className: 'row'
 		, initialize: function() {
 			this.listenTo( app.model, 'change:questionId', this.render );
 		}

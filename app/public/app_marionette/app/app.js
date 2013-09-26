@@ -22,6 +22,19 @@ define( function( require ) {
 
 	app.addRegions({
 		mainContent: '#content'
+		, socialMedia: '#social-media'
+	});
+
+	app.addInitializer(function() {
+		this.showContent = function( Region, View, ViewName ) {
+			if( !!Region.currentView ) {
+				if( !Region.currentView.viewName || Region.currentView.viewName !== ViewName ) {
+					Region.show( new View() );
+				}
+			} else {
+				Region.show( new View() );
+			}
+		};
 	});
 
 	app.on( 'initialize:after', function() {

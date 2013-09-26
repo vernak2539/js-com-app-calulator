@@ -12,7 +12,7 @@ define( function( require ) {
 
 	return Marionette.ItemView.extend({
 		template: answersTmpl
-		, className: 'btn-toolbar'
+		, className: 'row'
 		, events: {
 			'click .answer-btn': 'storeAnswer'
 		}
@@ -24,7 +24,7 @@ define( function( require ) {
 		}
 		, changeQuestion: function() {
 			var qID = app.model.get( 'questionId' );
-			if( qID < app.model.get('questions').length - 1 ) {
+			if( qID < app.model.get('questions').length ) {
 				var newQuestionId = ++qID;
 				app.model.set( 'questionId', newQuestionId );
 				app.router.navigate( '/quiz/' + newQuestionId, { trigger: true } );

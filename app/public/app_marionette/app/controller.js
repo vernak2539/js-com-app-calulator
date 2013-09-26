@@ -8,9 +8,10 @@ define( function( require ) {
 	var Backbone = require( 'backbone' );
 
 	// views
-	var StartLayout   = require( 'views/start-layout' );
-	var QuizLayout    = require( 'views/quiz-layout' );
-	var ResultsView = require( 'views/results-view' );
+	var StartLayout     = require( 'views/start-layout' );
+	var QuizLayout      = require( 'views/quiz-layout' );
+	var ResultsView     = require( 'views/results-view' );
+	var SocialMediaView = require( 'views/social-media-view' );
 
 	// initializers for anything
 	app.addInitializer( function() {
@@ -41,7 +42,8 @@ define( function( require ) {
 
 	var controller = {
 		start: function() {
-			app.mainContent.show( new StartLayout() );
+			app.showContent( app.mainContent, StartLayout, null );
+			app.showContent( app.socialMedia, SocialMediaView, 'social-media' );
 		}
 		, quiz: function( id ) {
 			// caching current question id that's stored in model
@@ -65,19 +67,14 @@ define( function( require ) {
 				app.router.navigate( '/quiz/' + app.model.get( 'questionId' ) );
 			}
 
-			if( !!app.mainContent.currentView ) {
-				if( app.mainContent.currentView.viewName !== "quiz-layout" ) {
-					app.mainContent.show( new QuizLayout() );
-				}
-			} else {
-				app.mainContent.show( new QuizLayout() );
-			}
+			app.showContent( app.mainContent, QuizLayout, 'quiz-layout' );
+			app.showContent( app.socialMedia, SocialMediaView, 'social-media' );
 		}
 		, results: function() {
 			if( app.utility.objectSize( app.model.get( 'answers' ) ) !== app.model.get( 'questions' ).length ) {
-				app.router.navigate( '/quiz/', { trigger: true } );
+				app.router.navigate( '/', { trigger: true } );
 			} else {
-				app.mainContent.show( new ResultsView() );
+				app.showContent( app.mainContent, ResultsView, null );
 			}
 		}
 	};

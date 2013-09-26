@@ -6803,3 +6803,21 @@ td.visible-print {
     display: none !important;
   }
 }
+
+.com-app .social-media {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 10px 0 8px 15px;
+  text-align: center;
+  background: #fff;
+  border-top: 1px solid #eeeeee;
+}
+
+.com-app .question-height {
+  min-height: 120px;
+}
+
+.com-app .com-app-start .row:last-child {
+  margin-bottom: 50px;
+}
