@@ -1,6 +1,39 @@
 <!-- results template -->
-<div>{{ PRCA }}</div>
-<div>{{ group }}</div>
-<div>{{ meeting }}</div>
-<div>{{ interpersonal }}</div>
-<div>{{ public_speaking }}</div>
+<div class="row">
+	<div class="col-xs-12  col-sm-12 col-md-12 col-lg-10 col-lg-offset-1 text-center">
+		<h1 class="title">Your PRCA is <strong>{{ PRCA }}</strong></h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12  col-sm-12 col-md-12 col-lg-10 col-lg-offset-1 text-center">
+		<p>Below are your individual score. Click on them to display a description</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-6  col-sm-6 col-md-4 col-md-offset-2 col-lg-4 col-lg-offset-2 text-center">
+		<div class="score-box">
+			<p>Group Score</p>
+			<h2>{{ group }}</h2>
+		</div>
+	</div>
+	<div class="col-xs-6  col-sm-6 col-md-4 col-md-offset-2 col-lg-4 col-lg-offset-0 text-center">
+		<div class="score-box">
+			<p>Meeting Score</p>
+			<h2>{{ meeting }}</h2>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-6  col-sm-6 col-md-4 col-md-offset-2 col-lg-4 col-lg-offset-2 text-center">
+		<div class="score-box">
+			<p>Interpersonal Score</p>
+			<h2>{{ interpersonal }}</h2>
+		</div>
+	</div>
+	<div class="col-xs-6  col-sm-6 col-md-4 col-md-offset-2 col-lg-4 col-lg-offset-0 text-center">
+		<div class="score-box">
+			<p>Public Speaking Score</p>
+			<h2>{{ public_speaking }}</h2>
+		</div>
+	</div>
+</div>

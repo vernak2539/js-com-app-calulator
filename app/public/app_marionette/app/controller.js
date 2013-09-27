@@ -75,6 +75,7 @@ define( function( require ) {
 				app.router.navigate( '/', { trigger: true } );
 			} else {
 				app.showContent( app.mainContent, ResultsView, null );
+				app.showContent( app.socialMedia, SocialMediaView, 'social-media' );
 			}
 		}
 	};

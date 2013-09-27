@@ -6814,10 +6814,75 @@ td.visible-print {
   border-top: 1px solid #eeeeee;
 }
 
+.com-app .progress-display {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 2px 10px;
+  font-size: 2.5em;
+  color: #a6a6a6;
+  background: #eeeeee;
+  border-right: 1px solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2;
+  -webkit-box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.com-app .progress-display > span:first-child {
+  color: #626262;
+}
+
 .com-app .question-height {
   min-height: 120px;
 }
 
+.com-app .legend {
+  margin-top: 20px;
+}
+
+.com-app .legend > ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
 .com-app .com-app-start .row:last-child {
   margin-bottom: 50px;
+}
+
+.com-app .results .title {
+  color: #999999;
+}
+
+.com-app .results .title > strong {
+  font-size: 1.5em;
+  color: #555555;
+}
+
+.com-app .results h2 {
+  margin-top: 0;
+  font-size: 42px;
+}
+
+.com-app .results .score-box {
+  width: 95%;
+  padding: 20px 0 15px;
+  margin: 0 auto 15px;
+  color: #fff;
+  cursor: pointer;
+  background: #6aa3d5;
+  border-radius: 6px;
+}
+
+.com-app .results .score-box:hover {
+  background: #92bce0;
+}
+
+/* Small devices (tablets, 768px and up) */
+
+@media (max-width: 1200px) {
+  .com-app .progress-display {
+    padding: 0 10px;
+    font-size: 2em;
+  }
 }

@@ -9,6 +9,7 @@ define( function( require ) {
 	// views
 	var AnswersView = require( 'views/answers-view' );
 	var QuestionView = require( 'views/question-view' );
+	var ProgressView = require( 'views/progress-view' );
 
 	// TEMPLATES
 	var templateName = require( 'tmpl!templates/quiz-layout-tmpl.html' );
@@ -20,10 +21,12 @@ define( function( require ) {
 		, regions: {
 			question: '#question'
 			, answer: '#answer'
+			, progress: '#progress'
 		}
 		, onRender: function() {
 			this.answer.show( new AnswersView() );
 			this.question.show( new QuestionView() );
+			this.progress.show( new ProgressView() );
 		}
 	});
 });
