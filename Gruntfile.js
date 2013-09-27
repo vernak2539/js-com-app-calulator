@@ -38,6 +38,7 @@ module.exports = function(grunt) {
 			generic: {
 				src: [
 					'objects/**/*.js'
+					, 'app/public/app_marionette/**/*.js'
 				],
 				options: {
 					// Recommendations taken from http://jscomplexity.org/complexity
