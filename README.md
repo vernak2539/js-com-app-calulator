@@ -24,13 +24,15 @@ This is just a fun little experiment for me. I coded, quite badly if I do say so
 The following technologies are used in this repo
 
 * [Grunt](http://gruntjs.com)
-* node.js
+* Node.js
 * QUnit (full tests for all objects so far)
 * [Bower](http://bower.io/) 
+* Volo
 * CoffeeScript
 * ES5
 * ES6 (coming soon)
 * Backbone (coming soon)
-* Backbone Marionette (coming soon)
+* Backbone Marionette
+    * Still need tests 
 
  
