@@ -33,6 +33,10 @@ The following technologies are used in this repo
 * ES6 (coming soon)
 * Backbone (coming soon)
 * Backbone Marionette
-    * Still need tests 
+    * Still need tests
+
+####Versioning
+* The **calculator objects**, at the top level of this repo, have **even #** versions/tags.
+* The **apps**, in the apps folder, have **odd #** versions/tags.
 
  
