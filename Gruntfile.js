@@ -29,7 +29,7 @@ module.exports = function(grunt) {
 		, connect: {
 			apps: {
 				options: {
-					port: 7000,
+					port: 5000,
 					base: './'
 				}
 			}
@@ -38,6 +38,7 @@ module.exports = function(grunt) {
 			generic: {
 				src: [
 					'objects/**/*.js'
+					, 'app/public/app_marionette/**/*.js'
 				],
 				options: {
 					// Recommendations taken from http://jscomplexity.org/complexity
@@ -71,18 +72,18 @@ module.exports = function(grunt) {
 				, tasks: [ 'coffee:calc' ]
 			}
 			, less: {
-				files: [ './apps/less/*.less']
+				files: [ './app/public/less/*.less']
 				, tasks: [ 'recess:compile' ]
 			}
 			, all: {
-				files: [ './apps/less/*.less', './apps/app_backbone/js/**/*.js' ]
+				files: [ './app/public/less/*.less', './app/public/app_backbone/js/**/*.js', './app/public/app_marionette/js/**/*.js' ]
 				, tasks: [ 'coffee:genCalculator', 'jshint', 'qunit', 'complexity', 'recess:compile' ]
 			}
 		}
 		, recess: {
 			compile: {
 				files: {
-					'./apps/css/main.css': ['./apps/less/main.less']
+					'./app/public/css/main.css': ['./app/public/less/main.less']
 				},
 				options: {
 					compile: true
@@ -95,5 +96,7 @@ module.exports = function(grunt) {
 	grunt.registerTask( 'default', ['coffee:genCalculator', 'jshint', 'qunit', 'complexity'] );
 
 	grunt.registerTask( 'dev', ['default', 'connect:apps', 'watch:all'] );
+
+	grunt.registerTask( 'less', ['watch:less']);
 
 };
