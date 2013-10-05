@@ -10,7 +10,7 @@
 		module.exports = factory();
 	} else {
 		// Browser globals (root is window)
-		root.CommAppCalc = factory();
+		root.ComAppCalc = factory();
 	}
 }(this, function () {
 	"use strict";
