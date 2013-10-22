@@ -39,20 +39,9 @@ define(function() {
       return scores[name] || false;
     };
     sum = function(array) {
-      var i, sumOfArray;
-      sumOfArray = 0;
-      if (array.length === 1) {
-        sumOfArray = parseInt(array, 10);
-      } else if (array.length > 1) {
-        i = 0;
-        while (i < array.length) {
-          sumOfArray = sumOfArray + (parseInt(array[i], 10) || 0);
-          i++;
-        }
-      } else {
-        sumOfArray = false;
-      }
-      return sumOfArray;
+      return array.reduce(function(x, y) {
+        return parseInt(x, 10) + parseInt(y, 10);
+      });
     };
     return {
       getGroupScore: getGroupScore,

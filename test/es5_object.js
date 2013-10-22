@@ -70,9 +70,9 @@ require(["jquery", "objects/es5_object"], function($, Calculator) {
 	test("ES5 Object - object should only have getGroupScore(), getPRCA(), and loadData() available", function() {
 		var calc = Calculator();
 		strictEqual( Object.keys(calc).length, 3, "three functions present" );
-		equal( !!calc.getGroupScore(), true, "getGroupScore present");
-		equal( !isNaN(parseInt(calc.getPRCA())), true, "getPRCA present");
-		equal( !!calc.loadData(), true, "loadData present");
+		equal( $.isFunction( calc.getGroupScore ), true, "getGroupScore present");
+		equal( $.isFunction( calc.getPRCA ), true, "getPRCA present");
+		equal( $.isFunction( calc.loadData ), true, "loadData present");
 	});
 
 	test("ES5 Object - calculating PRCA", function() {

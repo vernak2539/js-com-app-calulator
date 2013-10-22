@@ -56,27 +56,9 @@ define(function() {
 		}
 
 		function sum( array ) {
-			var sumOfArray = 0;
-			if( array.length === 1 ) {
-
-				// return lone array item as a int (will not be dealing with floats as we shouldn't be getting them anyway)
-				sumOfArray = parseInt(array, 10);
-
-			} else if( array.length > 1 ) {
-
-				// do the sum
-				for( var i = 0; i < array.length; i++ ) {
-					sumOfArray = sumOfArray + ( parseInt( array[ i ], 10 ) || 0 );
-				}
-
-			} else {
-
-				// doesn't meet requirements
-				sumOfArray = false;
-
-			}
-
-			return sumOfArray;
+			return array.reduce( function( prev, current ) {
+				return parseInt( prev, 10 ) + parseInt( current, 10 );
+			});
 		}
 
 		// returning object

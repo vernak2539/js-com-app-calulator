@@ -68,9 +68,9 @@ require(["jquery", "objects/coffee_calculator"], function($, Calculator) {
 	test("Coffee Object - object should only have getGroupScore(), getPRCA(), and loadData() available", function() {
 		var calc = Calculator();
 		strictEqual( Object.keys(calc).length, 3, "three functions present" );
-		equal( !!calc.getGroupScore(), true, "getGroupScore present");
-		equal( !isNaN(parseInt(calc.getPRCA())), true, "getPRCA present");
-		equal( !!calc.loadData(), true, "loadData present");
+		equal( $.isFunction( calc.getGroupScore ), true, "getGroupScore present");
+		equal( $.isFunction( calc.getPRCA ), true, "getPRCA present");
+		equal( $.isFunction( calc.loadData ), true, "loadData present");
 	});
 
 	test("Coffee Object - calculating PRCA", function() {

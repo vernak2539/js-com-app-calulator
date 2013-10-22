@@ -37,17 +37,7 @@ define ->
 			scores[name] or false
 
 		sum = (array) ->
-			sumOfArray = 0
-			if array.length is 1
-				sumOfArray = parseInt( array, 10 )
-			else if array.length > 1
-				i = 0
-				while i < array.length
-					sumOfArray = sumOfArray + ( parseInt( array[i], 10) or 0)
-					i++
-			else
-				sumOfArray = false
-			sumOfArray
+			array.reduce ( x, y ) -> parseInt( x, 10 ) + parseInt( y, 10 )
 		
 		getGroupScore: getGroupScore
 		getPRCA: getPRCA
