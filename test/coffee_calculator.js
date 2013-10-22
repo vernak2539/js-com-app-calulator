@@ -6,6 +6,8 @@ require(["jquery", "objects/coffee_calculator"], function($, Calculator) {
 
 	"use strict";
 
+	module("Coffee Object");
+
 	var sampleData1 = {
 		"g1": 2
 		, "g2": 4
@@ -60,12 +62,12 @@ require(["jquery", "objects/coffee_calculator"], function($, Calculator) {
 		, "p6": 4
 	};
 
-	test("Coffee Object - object is initialized without 'new' keyword", function() {
+	test("should initialize without 'new' keyword", function() {
 		var calc = Calculator();
 		strictEqual(typeof calc, "object", "object created from factory function");
 	});
 
-	test("Coffee Object - object should only have getGroupScore(), getPRCA(), and loadData() available", function() {
+	test("should only have getGroupScore(), getPRCA(), and loadData() available", function() {
 		var calc = Calculator();
 		strictEqual( Object.keys(calc).length, 3, "three functions present" );
 		equal( $.isFunction( calc.getGroupScore ), true, "getGroupScore present");
@@ -73,32 +75,32 @@ require(["jquery", "objects/coffee_calculator"], function($, Calculator) {
 		equal( $.isFunction( calc.loadData ), true, "loadData present");
 	});
 
-	test("Coffee Object - calculating PRCA", function() {
+	test("should calculate PRCA", function() {
 		var calc = Calculator( sampleData1 );
 		strictEqual( calc.getPRCA(), 80, "returned correct PRCA score");
 	});
 
-	test("Coffee Object - calculating group discussion score" , function() {
+	test("should calculate group discussion score" , function() {
 		var calc = Calculator( sampleData1 );
 		strictEqual( calc.getGroupScore("group"), 20, "returned correct group discussion score");
 	});
 
-	test("Coffee Object - calculating meeting score" , function() {
+	test("should calculate meeting score" , function() {
 		var calc = Calculator( sampleData1 );
 		strictEqual( calc.getGroupScore("meeting"), 22, "returned correct meetings score");
 	});
 
-	test("Coffee Object - calculating interpersonal score" , function() {
+	test("should calculate interpersonal score" , function() {
 		var calc = Calculator( sampleData1 );
 		strictEqual( calc.getGroupScore("interpersonal"), 17, "returned correct interpersonal score");
 	});
 
-	test("Coffee Object - calculating public speaking score" , function() {
+	test("should calculate public speaking score" , function() {
 		var calc = Calculator( sampleData1 );
 		strictEqual( calc.getGroupScore("public_speaking"), 21, "returned correct public speaking score");
 	});
 
-	test("Coffee Object - loading new data and testing calculations", function() {
+	test("should load new data and testing calculations", function() {
 		var calc = Calculator( sampleData1 );
 		strictEqual( calc.getPRCA(), 80, "returned correct PRCA score for sampleData1");
 

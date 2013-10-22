@@ -1,6 +1,6 @@
 {
   "name": "js-communication-apprehension-calculator",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "~0.1.1",
