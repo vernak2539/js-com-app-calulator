@@ -38,7 +38,7 @@ define ->
 
 		sum = (array) ->
 			array.reduce ( x, y ) -> parseInt( x, 10 ) + parseInt( y, 10 )
-		
+
 		getGroupScore: getGroupScore
 		getPRCA: getPRCA
 		loadData: loadNewData

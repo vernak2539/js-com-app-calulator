@@ -15,7 +15,7 @@
 }(this, function () {
 	"use strict";
 
-	return function ComAppCalc(data) {
+	return function( data ) {
 		var results = data;
 		var questionTypes = {
 				'group': 'g'
